@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Riya Vartha – Computer Engineering student at VIT Mumbai. Portfolio showcasing skills, projects, and contact." />
+  <title>Riya Vartha | Computer Engineering Student</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── CURSOR GLOW ── -->
+  <canvas id="cursor-canvas"></canvas>
+
+  <!-- ================== LANDING PAGE ================== -->
+  <div id="landing-page">
+    <canvas id="landing-canvas"></canvas>
+    <div class="landing-content" id="landing-content">
+      <!-- Cinematic letter-split stage -->
+      <div class="rv-stage" id="rv-stage">
+        <span class="rv-letter rv-r" id="rv-r">R</span>
+        <span class="rv-letter rv-v" id="rv-v">V</span>
+      </div>
+      <button id="enter-btn" class="hidden-anim" onclick="enterPortfolio()">
+        Enter Portfolio
+      </button>
+    </div>
+  </div>
+
+  <!-- ================== MAIN PORTFOLIO ================== -->
+  <div id="portfolio" class="hidden">
+    <canvas id="portfolio-canvas"></canvas>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-mark">RV</span>
+          <span class="logo-name">Riya Vartha</span>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home" onclick="closeMenu()">Home</a></li>
+          <li><a href="#about" onclick="closeMenu()">About</a></li>
+          <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+          <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+          <li><a href="#education" onclick="closeMenu()">Education</a></li>
+          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+          <li>
+            <a href="resume.jpeg" download="Riya_Vartha_Resume.jpeg" class="nav-resume-btn" id="nav-download-btn">
+              <i class="fas fa-download"></i> Resume
+            </a>
+          </li>
+          <li>
+            <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+              <span class="theme-icon">🌙</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ── HOME ── -->
+    <section id="home" class="section">
+      <div class="section-inner home-inner">
+        <div class="glass-card home-card reveal">
+          <p class="home-greeting">Hello, World</p>
+          <h1 class="home-title">
+            <span id="typing-text"></span><span class="cursor">|</span>
+          </h1>
+          <p class="home-role">Computer Engineering Student</p>
+          <p class="home-tagline">Ideas in mind, solutions in code.</p>
+          <div class="home-btns">
+            <a href="resume.jpeg" target="_blank" class="btn-primary" id="home-download-btn">
+              <i class="fas fa-file-image"></i> View Resume
+            </a>
+            <a href="#about" class="btn-outline">About Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">About <span class="accent">Me</span></h2>
+        <div class="glass-card about-card reveal">
+          <div class="about-avatar">
+            <div class="avatar-circle">RV</div>
+          </div>
+          <div class="about-body">
+            <p>
+              Computer Engineering student at <strong>Vidyalankar Institute of Technology</strong> with a strong foundation in programming and problem-solving. Experienced in building projects and participating in technical activities.
+            </p>
+            <p>
+              Actively involved in student committees, developing leadership, communication, and teamwork skills. Passionate about creating meaningful solutions and continuously learning new technologies.
+            </p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-num">10+</span>
+                <span class="stat-label">Projects</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-num">8.95</span>
+                <span class="stat-label">CGPA</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-num">3+</span>
+                <span class="stat-label">Years Learning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ── -->
+    <section id="skills" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">My <span class="accent">Skills</span></h2>
+        <div class="skills-grid">
+
+          <div class="glass-card skill-card reveal">
+            <div class="skill-card-header">
+              <i class="fas fa-code skill-icon"></i>
+              <h3>Programming Languages</h3>
+            </div>
+            <ul class="skill-list">
+              <li><i class="fas fa-terminal"></i> C</li>
+              <li><i class="fab fa-java"></i> Java</li>
+              <li><i class="fab fa-python"></i> Python</li>
+            </ul>
+          </div>
+
+          <div class="glass-card skill-card reveal">
+            <div class="skill-card-header">
+              <i class="fas fa-laptop-code skill-icon"></i>
+              <h3>Web Development</h3>
+            </div>
+            <ul class="skill-list">
+              <li><i class="fab fa-html5"></i> HTML</li>
+              <li><i class="fab fa-css3-alt"></i> CSS</li>
+              <li><i class="fab fa-js-square"></i> JavaScript</li>
+            </ul>
+          </div>
+
+          <div class="glass-card skill-card reveal">
+            <div class="skill-card-header">
+              <i class="fas fa-brain skill-icon"></i>
+              <h3>Core Concepts</h3>
+            </div>
+            <ul class="skill-list">
+              <li><i class="fas fa-sitemap"></i> Arrays &amp; Linked Lists</li>
+              <li><i class="fas fa-layer-group"></i> Stacks &amp; Queues</li>
+              <li><i class="fas fa-project-diagram"></i> Trees</li>
+            </ul>
+          </div>
+
+          <div class="glass-card skill-card reveal">
+            <div class="skill-card-header">
+              <i class="fas fa-tools skill-icon"></i>
+              <h3>Tools &amp; Technologies</h3>
+            </div>
+            <ul class="skill-list">
+              <li><i class="fab fa-git-alt"></i> Git &amp; GitHub</li>
+              <li><i class="fas fa-database"></i> PostgreSQL</li>
+              <li><i class="fas fa-microchip"></i> Arduino</li>
+              <li><i class="fas fa-file-excel"></i> Excel &amp; Canva</li>
+            </ul>
+          </div>
+
+          <div class="glass-card skill-card soft-skills-card reveal">
+            <div class="skill-card-header">
+              <i class="fas fa-users skill-icon"></i>
+              <h3>Soft Skills</h3>
+            </div>
+            <p class="soft-skills-tagline">Strong interpersonal and leadership abilities</p>
+            <div class="soft-skills-badges">
+              <span class="skill-badge">Leadership</span>
+              <span class="skill-badge">Teamwork</span>
+              <span class="skill-badge">Communication</span>
+              <span class="skill-badge">Adaptability</span>
+              <span class="skill-badge">Problem-Solving</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ── -->
+    <section id="projects" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">My <span class="accent">Projects</span></h2>
+        <div class="timeline">
+          <div class="timeline-track"></div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot"></div>
+            <div class="glass-card tl-card">
+              <span class="project-chip">Web App</span>
+              <h3>Event Management System</h3>
+              <p>Event organization system for managing registrations, schedules, and coordination.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot"></div>
+            <div class="glass-card tl-card">
+              <span class="project-chip">Web App</span>
+              <h3>Recipe Website</h3>
+              <p>Responsive recipe platform with search, categories, and clean UI for food enthusiasts.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot"></div>
+            <div class="glass-card tl-card">
+              <span class="project-chip">Web App</span>
+              <h3>Sikkim Tourism</h3>
+              <p>Tourism information website highlighting destinations, culture, and travel guides for Sikkim.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot"></div>
+            <div class="glass-card tl-card">
+              <span class="project-chip">Algorithm</span>
+              <h3>Shortest Path Algorithm</h3>
+              <p>API-based routing system implementing shortest path algorithms for navigation solutions.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot"></div>
+            <div class="glass-card tl-card">
+              <span class="project-chip">System</span>
+              <h3>Bank Management System</h3>
+              <p>Basic banking operations system covering accounts, transactions, and record management.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot"></div>
+            <div class="glass-card tl-card">
+              <span class="project-chip">Hardware</span>
+              <h3>Rain Water Detector</h3>
+              <p>Hardware-based detection system using sensors to monitor and alert rain activity.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot"></div>
+            <div class="glass-card tl-card">
+              <span class="project-chip">Hardware</span>
+              <h3>Water Level Indicator</h3>
+              <p>Monitoring system to track and display real-time water levels using embedded hardware.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot"></div>
+            <div class="glass-card tl-card">
+              <span class="project-chip">Design</span>
+              <h3>Portfolio Website</h3>
+              <p>Personal portfolio with dark theme, glassmorphism, and interactive particle animations.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal ongoing-item">
+            <div class="tl-dot tl-dot-ongoing"></div>
+            <div class="glass-card tl-card ongoing-card">
+              <span class="project-chip chip-ongoing">Ongoing</span>
+              <h3>Lost &amp; Found Website</h3>
+              <p>Platform to post and search lost/found items with user listings and notifications.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal ongoing-item">
+            <div class="tl-dot tl-dot-ongoing"></div>
+            <div class="glass-card tl-card ongoing-card">
+              <span class="project-chip chip-ongoing">Ongoing</span>
+              <h3>Page Replacement Simulation</h3>
+              <p>OS concepts simulation visualizing FIFO, LRU, and Optimal page replacement algorithms.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="tl-dot tl-dot-more"></div>
+            <div class="glass-card tl-card more-card">
+              <p class="more-text"><i class="fas fa-ellipsis-h"></i> &nbsp;And many more in progress…</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EDUCATION ── -->
+    <section id="education" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">My <span class="accent">Education</span></h2>
+        <div class="edu-list">
+
+          <div class="glass-card edu-card reveal">
+            <div class="edu-icon-wrap">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="edu-body">
+              <span class="edu-period">2023 – 2026</span>
+              <h3>B.Tech Computer Science Engineering</h3>
+              <p class="edu-inst">Vidyalankar Institute of Technology</p>
+              <p class="edu-grade">CGPA: <strong>8.95</strong></p>
+            </div>
+          </div>
+
+          <div class="glass-card edu-card reveal">
+            <div class="edu-icon-wrap">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="edu-body">
+              <span class="edu-period">2021 – 2023</span>
+              <h3>HSC (Class XII)</h3>
+              <p class="edu-inst">V.G Vaze College</p>
+              <p class="edu-grade">Score: <strong>74.6%</strong></p>
+            </div>
+          </div>
+
+          <div class="glass-card edu-card reveal">
+            <div class="edu-icon-wrap">
+              <i class="fas fa-school"></i>
+            </div>
+            <div class="edu-body">
+              <span class="edu-period">SSC (Class X)</span>
+              <h3>Secondary School</h3>
+              <p class="edu-inst">Lok Puram Public School</p>
+              <p class="edu-grade">Score: <strong>83.6%</strong></p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- INTERNSHIP -->
+        <h2 class="section-title sub-title">Internship <span class="accent">Experience</span></h2>
+        <div class="edu-list">
+          <div class="glass-card edu-card reveal">
+            <div class="edu-icon-wrap">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="edu-body">
+              <span class="edu-period">Jan 2024 – Apr 2024</span>
+              <h3>STDT IT Services</h3>
+              <p class="edu-inst">Software Intern</p>
+              <ul class="internship-list">
+                <li>Internal tool development</li>
+                <li>Program logic writing</li>
+                <li>Testing and issue fixing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <h2 class="section-title sub-title">Certifications <span class="accent">&amp; Achievements</span></h2>
+        <div class="cert-grid">
+          <div class="glass-card cert-card reveal">
+            <i class="fas fa-certificate cert-icon"></i>
+            <p>NPTEL Java</p>
+          </div>
+          <div class="glass-card cert-card reveal">
+            <i class="fas fa-certificate cert-icon"></i>
+            <p>TCS iON Java &amp; DSA</p>
+          </div>
+          <div class="glass-card cert-card reveal">
+            <i class="fas fa-certificate cert-icon"></i>
+            <p>MATLAB Certifications</p>
+          </div>
+        </div>
+
+        <!-- EXTRACURRICULAR -->
+        <h2 class="section-title sub-title">Extracurricular <span class="accent">Activities</span></h2>
+        <div class="edu-list">
+          <div class="glass-card edu-card reveal">
+            <div class="edu-icon-wrap">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="edu-body">
+              <span class="edu-period">VIT Student Council</span>
+              <h3>Core Committee Member</h3>
+              <p class="edu-inst">Student Council of VIT</p>
+              <ul class="internship-list">
+                <li>Publicity Core</li>
+                <li>Sponsorship Core</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact" class="section">
+      <div class="section-inner">
+        <h2 class="section-title">Let's Get <span class="accent">In Touch</span></h2>
+        <p class="contact-sub">Feel free to reach out — I'd love to connect.</p>
+
+        <div class="contact-grid">
+
+          <!-- Info card -->
+          <div class="glass-card contact-info reveal">
+            <h3>Contact Me Here</h3>
+            <a href="mailto:riya.vartha18@gmail.com" class="contact-email">
+              <i class="fas fa-envelope"></i>
+              riya.vartha18@gmail.com
+            </a>
+            <div class="social-row">
+              <a href="tel:9326024990" class="social-btn" title="Call Me" id="social-phone">
+                <i class="fas fa-phone"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/riya-vartha-4b3535339" target="_blank" rel="noopener" class="social-btn" title="LinkedIn" id="social-linkedin">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://leetcode.com/riyavartha/" target="_blank" rel="noopener" class="social-btn" title="LeetCode" id="social-leetcode">
+                <i class="fas fa-code"></i>
+              </a>
+              <a href="https://github.com/riyavartha18" target="_blank" rel="noopener" class="social-btn" title="GitHub" id="social-github">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.instagram.com/riya18406" target="_blank" rel="noopener" class="social-btn" title="Instagram" id="social-instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Form card -->
+          <div class="glass-card contact-form-wrap reveal">
+            <form id="contact-form" onsubmit="handleFormSubmit(event)">
+              <div class="form-field">
+                <label for="form-name">Your Name</label>
+                <input type="text" id="form-name" name="name" placeholder="Enter your name" required />
+              </div>
+              <div class="form-field">
+                <label for="form-email">Your Email</label>
+                <input type="email" id="form-email" name="email" placeholder="Enter your email" required />
+              </div>
+              <div class="form-field">
+                <label for="form-message">Message</label>
+                <textarea id="form-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary form-submit">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+            <div id="form-success" class="form-success hidden">
+              <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Designed &amp; Built by <span class="accent">Riya Vartha</span> &nbsp;·&nbsp; 2025</p>
+    </footer>
+
+  </div><!-- end #portfolio -->
+
+  <script src="script.js"></script>
+</body>
+</html>
